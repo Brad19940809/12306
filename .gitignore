@@ -3,3 +3,5 @@
 *.yaml
 *.log
 .idea/
+env
+config/ticket_config_real.yaml

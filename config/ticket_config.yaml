@@ -71,7 +71,7 @@ set:
 ticket_black_list_time: 5
 
 # 自动打码
-is_auto_code: True
+is_auto_code: False
 
 # 打码平台， 2 为若快平台（目前只支持若快平台打码，打码兔已经关闭）, 若快注册地址：http://www.ruokuai.com/client/index?6726
 auto_code_type: 2

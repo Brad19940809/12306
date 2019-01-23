@@ -95,35 +95,30 @@ class select:
 
         print(u"*" * 50)
         print(u"检查当前python版本为：{}，目前版本只支持2.7.10-2.7.15".format(sys.version.split(" ")[0]))
-        print(u"12306刷票小助手，最后更新于2019.01.08，请勿作为商业用途，交流群号：286271084(已满)，"
-              u" 2群：649992274(已满)\n"
-              u" 3群：632501142(已满)\n"
-              u" 4群: 606340519(已满)\n"
-              u" 5群: 948526733(已满)\n"
-              u" 6群: 444101020(未满)\n"
-              u" 7群: 660689659(未满)\n"
-              )
+
         if is_by_time:
-            method_notie = u"购票方式：根据时间区间购票\n可接受最早出发时间：{0}\n可接受最晚抵达时间：{1}\n可接受最长旅途时间：{2}\n可接受列车类型：{3}\n" \
-                .format(minutes_to_time(departure_time), minutes_to_time(arrival_time), minutes_to_time(take_time),
-                        " , ".join(train_types))
+            method_notie = '购票方式：根据时间区间购票\n可接受最早出发时间：{0}\n可接受最晚抵达时间：' \
+                           '{1}\n可接受最长旅途时间：{2}\n可接受列车类型：{3}\n'. \
+                format(minutes_to_time(departure_time),
+                       minutes_to_time(arrival_time),
+                       minutes_to_time(take_time),
+                       " , ".join(train_types))
         else:
             method_notie = u"购票方式：根据候选车次购买\n候选购买车次：{0}".format(",".join(station_trains))
-        print (u"当前配置：\n出发站：{0}\n到达站：{1}\n乘车日期：{2}\n坐席：{3}\n是否有票优先提交：{4}\n乘车人：{5}\n" \
-               u"刷新间隔: 随机(1-3S)\n{6}\n僵尸票关小黑屋时长: {7}\n下单接口: {8}\n下单模式: {9}\n预售踩点时间:{10} ".format \
-                (
-                from_station,
-                to_station,
-                station_dates,
-                ",".join(set_names),
-                is_more_ticket,
-                ",".join(ticke_peoples),
-                method_notie,
-                ticket_black_list_time,
-                order_type,
-                order_model,
-                open_time,
-            ))
+        print (u"当前配置：\n出发站：{0}\n到达站：{1}\n乘车日期：{2}\n坐席：{3}\n是否有票优先提交：{4}\n乘车人：{5}\n"
+               u"刷新间隔: 随机(1-3S)\n{6}\n僵尸票关小黑屋时长: {7}\n下单接口: {8}\n下单模式: {9}\n预售踩点时间:{10} ".
+               format(from_station,
+                      to_station,
+                      station_dates,
+                      ",".join(set_names),
+                      is_more_ticket,
+                      ",".join(
+                          ticke_peoples),
+                      method_notie,
+                      ticket_black_list_time,
+                      order_type,
+                      order_model,
+                      open_time))
         print (u"*" * 50)
         return from_station, to_station, station_dates, set_type, is_more_ticket, ticke_peoples, station_trains, \
                ticket_black_list_time, order_type, is_by_time, train_types, departure_time, arrival_time, take_time, \
@@ -218,7 +213,7 @@ class select:
             try:
                 num += 1
                 now = datetime.datetime.now()  # 感谢群里大佬提供整点代码
-                configCommon.checkSleepTime(self)   # 晚上到点休眠
+                configCommon.checkSleepTime(self)  # 晚上到点休眠
                 if self.order_model is 1:
                     sleep_time_s = 0.5
                     sleep_time_t = 0.6

@@ -1,7 +1,5 @@
 # -*- coding: utf8 -*-
-import time
 
-import requests
 from config.ticketConf import _get_yaml
 from config.urlConf import urls
 from myUrllib.httpUtils import HTTPClient
@@ -12,7 +10,7 @@ PUSH_BEAR_API_PATH = "https://pushbear.ftqq.com/sub"
 def sendPushBear(msg):
     """
     pushBear微信通知
-    :param str: 通知内容 content
+    :param  msg: 通知内容 content
     :return:
     """
     conf = _get_yaml()
